@@ -1,4 +1,4 @@
-import paramiko
+
 import time
 
 from moviepy.editor import *
