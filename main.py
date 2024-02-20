@@ -6,7 +6,7 @@ from pytube import YouTube
 import os
 
 from pytube.exceptions import PytubeError
-count = 0
+count = 1
 
 def download(title,video_id,location):
     link = f'https://music.youtube.com/watch?v={video_id}'
@@ -47,34 +47,14 @@ def download(title,video_id,location):
 
 
 
+while count<5:
 
-from ftplib import FTP
+    download(f"Not Afraid {str(count)}", "-grPV-Fae6I", "/songs")
+    # download(f"Not Afraid {str(count)}", "-grPV-Fae6I", "C:\\Users\\Mchog\\Desktop\\dockersongs")
 
-
-def upload_file_via_ftp(local_path, remote_path, ftp_host, ftp_user, ftp_pass):
-    ftp = FTP(ftp_host)
-    ftp.login(ftp_user, ftp_pass)
-
-    with open(local_path, 'rb') as file:
-        ftp.storbinary(f'STOR {remote_path}', file)
-
-    ftp.quit()
-
-
-# Example usage
-local_file_path = f'{os.getcwd()}/Not Afraid '
-remote_file_path = f'/songs/Not Afraid'
-ftp_host = '162.251.120.221'
-ftp_user = 'eminem'
-ftp_pass = '10361036'
-
-while True:
-
-    download(f"Not Afraid {str(count)}", "-grPV-Fae6I", os.getcwd())
-    upload_file_via_ftp(f"{local_file_path}{str(count)}.mp3", f"{remote_file_path} {str(count)}.mp3", ftp_host, ftp_user, ftp_pass)
+    time.sleep(6)
     count+=1
-    time.sleep(5)
-    print(count)
+    print("downloaded")
 
 
 
